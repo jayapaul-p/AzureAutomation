@@ -1,25 +1,28 @@
 # OMS - SNOW Integration
 
-## Fully Automated
+## >Fully Automated Method
 
 Clone the repo and execute setup.ps1
 
-## Manual
+## >Manual Method
 
-# Create Automation Account
+# 1.Create Automation Account
+```
+ New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
+```
+(OR)
+Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
->New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
+# 2.Import Runbook
 
-# Import Runbook
+# 3.Publish Runbook
 
-# Publish Runbook
+# 4.Create Automation Credential
 
-# Create Automation Credential
+# 5.Create Variables
 
-# Create Variables
+# 6.Create Webhook
 
-# Create Webhook
+# 7.Create Action Group
 
-# Create Action Group
-
-# Link Action Group with Alerts
+# 8.Link Action Group with Alerts
