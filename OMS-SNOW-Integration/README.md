@@ -1,5 +1,6 @@
 # OMS - SNOW Integration
-
+  This project provides the steps to integrate Azure OMS (Operations management Suite) with ServiceNow. For more insights on OMS and its   functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/).
+  
 # **Fully Automated Method**
 Clone the repo and execute setup.ps1
 
@@ -14,7 +15,7 @@ Clone the repo and execute setup.ps1
    Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
    ## 2.Import Runbook
-   Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create a        runbook. 
+   Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
 
    ## 3.Publish Runbook
    Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
@@ -27,7 +28,9 @@ Clone the repo and execute setup.ps1
 
   ## 6.Create Webhook
   To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
+  
   ## 7.Create Action Group
   An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
+  
   ## 8.Link Action Group with Alerts
   Once after the  action group is creted , it should be linked with the alerts.......... 
