@@ -8,6 +8,8 @@ Clone the repo and execute setup.ps1
 
 # Create Automation Account
 
+>New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
+
 # Import Runbook
 
 # Publish Runbook
