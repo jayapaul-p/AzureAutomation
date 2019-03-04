@@ -23,7 +23,7 @@ try {
 }
 catch {
 
-    Write-Host $_;
+    Write-Error $_;
     exit;
 
 }
