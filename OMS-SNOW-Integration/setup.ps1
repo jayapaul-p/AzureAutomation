@@ -1,15 +1,15 @@
 Param
 (
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $true)]
     $AutomationAccountName,
 
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $true)]
     $ResourceGroupName,
 
-    [Parameter(Mandatory = $false)]
-    $ResourceGroupNameLocation,
+    [Parameter(Mandatory = $true)]
+    $ResourceGroupLocation="westeurope",
 
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $true)]
     $ServiceNowInstanceName,
 
     [Parameter(Mandatory = $true)]
@@ -19,47 +19,35 @@ Param
 
 
 try {
-    New-AzAutomationAccount -Name scripte1 -ResourceGroupName MyResourceGroup -Location 'westeurope-20' -ErrorAction Stop;
+    New-AzAutomationAccount -Name $AutomationAccountName -ResourceGroupName $ResourceGroupName -Location $ResourceGroupLocation -ErrorAction Stop;
 }
 catch {
 
     Write-Error $_;
     exit;
-
 }
 
 try {
-    Set-Location ~ -ErrorAction Stop
-    Set-Location ./AzureAutomation/OMS-SNOW-Integration/Runbook/ -ErrorAction Stop
-    Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Name Create-SNOWIncident -ErrorAction Stop
+    Set-Location ~ -ErrorAction Stop;
+    Set-Location ./AzureAutomation/OMS-SNOW-Integration/Runbook/ -ErrorAction Stop;
+    Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name Create-SNOWIncident -ErrorAction Stop;
 }
 catch {
-    Write-Host $_;
+    Write-Error $_;
     exit
 }
 
 
 try {
-    Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte 
+    Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -ErrorAction Stop;
 }
 catch {
-    Write-Host $_;
+    Write-Error $_;
     exit
 }
 
 try {
-
-    New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
- 
-}
-catch {
-    Write-Host $_;
-    exit;
-}
-
-
-try {
-    New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false 
+    New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName $ResourceGroupName -Value $ServiceNowCredential -AutomationAccountName $AutomationAccountName -ErrorAction Stop;
 }
 catch {
     Write-Host $_;
@@ -67,7 +55,16 @@ catch {
 }
 
 try {
-    New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName "MyResourceGroup" -AutomationAccountName scripte -IsEnabled $true -Force 
+    New-AzAutomationVariable -Name snowInstaceName -Value $ServiceNowInstanceName -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Encrypted $false -ErrorAction Stop;
+	New-AzAutomationVariable -Name snowEndpoint -Value "/api/now/v1/table/incident" -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Encrypted $false -ErrorAction Stop;
+}
+catch {
+    Write-Host $_;
+    exit;
+}
+
+try {
+    New-AzAutomationWebhook -Name ServiceNow-Incident -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -IsEnabled $true -Force -ErrorAction Stop;
 }
 catch {
     Write-Host $_;
