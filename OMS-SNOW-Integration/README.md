@@ -14,20 +14,30 @@ Clone the repo and execute setup.ps1
    *(OR)*
    Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
-## Clone git repo
+   ## 2.Import Runbook
+   
+   ### Clone git repo
 
 ```
 cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
+```
+### Import Runbook
+```
 cd ./AzureAutomation/OMS-SNOW-Integration/Runbook/
 Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Name Create-SNOWIncident
 
 ```
 
-   ## 2.Import Runbook
+
+   
    Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
 
    ## 3.Publish Runbook
+   
+   ```
+   Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
+   ```
    Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
  
   ## 4.Create Automation Credential
