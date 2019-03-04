@@ -1,8 +1,21 @@
-# OMS - SNOW Integration
+# **OMS - SNOW Integration**
+
+# Project Overview
   This project provides the steps to integrate Azure OMS (Operations management Suite) with ServiceNow. For more insights on OMS and its   functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/).
-  
+
 # **Fully Automated Method**
 Clone the repo and execute setup.ps1
+
+## How the Script Works
+   The fully automated script,helps in the integration of Azure OMS with ServiceNow via runbooks using Webhooks.
+   
+## Cloning Of Script from GITHUB
+
+
+## How to Execute the script
+
+
+## Result of the Script
 
 # **Manual Method**
 
@@ -58,17 +71,12 @@ Password for user admin: ********
   ## 5.Create Variables
   
   ```
-  New-AzAutomationVariable -Name snowInstaceName -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false
+  New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false
   ```
   
   After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
 
   ## 6.Create Webhook
-  
-  ```
-  PS /home/azureuser> New-AzAutomationWebhook -Name SnowIncidnet -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName "MyResourceGroup" -AutomationAccountName scripte -IsEnabled $true -Force
-  ```
-  
   To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
   ## 7.Create Action Group
