@@ -6,6 +6,12 @@
 # **Fully Automated Method**
 Clone the repo and execute setup.ps1
 
+```
+./setup.ps1 -AutomationAccountName script01 -ResourceGroupName MyResourceGroup -ResourceGroupLocation westeurope -ServiceNowInstanceName "https://google.com" -ServiceNowCredential admin
+```
+
+AutomationAccountName
+
 ## How the Script Works
    The fully automated script,helps in the integration of Azure OMS with ServiceNow via runbooks using Webhooks.
    

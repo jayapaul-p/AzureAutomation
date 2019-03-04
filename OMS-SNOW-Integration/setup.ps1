@@ -41,6 +41,7 @@ catch {
 
 try {
     Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -ErrorAction Stop;
+	Publish-AzAutomationRunbook -Name Get-SNOWIncPayload -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -ErrorAction Stop;
 }
 catch {
     Write-Error $_;
