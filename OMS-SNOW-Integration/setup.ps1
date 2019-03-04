@@ -19,7 +19,7 @@ Param
 
 
 try {
-    New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope-20' -ErrorAction Stop;
+    New-AzAutomationAccount -Name scripte1 -ResourceGroupName MyResourceGroup -Location 'westeurope-20' -ErrorAction Stop;
 }
 catch {
 
