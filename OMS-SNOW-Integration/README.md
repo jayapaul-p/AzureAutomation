@@ -14,7 +14,7 @@ cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
 
-Clone the repo and execute setup.ps1
+Clone the repo and execute setup.ps1 powershell script
 
 ```
 ./setup.ps1 -AutomationAccountName script01 -ResourceGroupName MyResourceGroup -ResourceGroupLocation westeurope -ServiceNowInstanceName "https://google.com" -ServiceNowCredential admin
