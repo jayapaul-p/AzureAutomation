@@ -31,6 +31,7 @@ try {
     Set-Location ~ -ErrorAction Stop;
     Set-Location ./AzureAutomation/OMS-SNOW-Integration/Runbook/ -ErrorAction Stop;
     Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name Create-SNOWIncident -ErrorAction Stop;
+	Import-AzAutomationRunbook -Path ./Get-SNOWIncPayload.ps1 -Type PowerShell -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Name Get-SNOWIncPayload -ErrorAction Stop;
 }
 catch {
     Write-Error $_;
