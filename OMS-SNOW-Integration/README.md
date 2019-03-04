@@ -41,6 +41,18 @@ Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -Res
    Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
  
   ## 4.Create Automation Credential
+  
+  ```
+  New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
+
+cmdlet New-AzAutomationCredential at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+Value
+User: admin
+Password for user admin: ********
+```
+  
   To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
 
   ## 5.Create Variables
