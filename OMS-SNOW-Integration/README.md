@@ -4,11 +4,23 @@
   This project provides the steps to integrate Azure OMS (Operations management Suite) with ServiceNow. For more insights on OMS and its   functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/).
 
 # **Fully Automated Method**
+
+Open cloud shell
+
+https://docs.microsoft.com/en-us/azure/cloud-shell/cloud-shell-windows-users
+
+```
+cd ~
+git clone https://github.com/jayapaul-p/AzureAutomation.git
+```
+
 Clone the repo and execute setup.ps1
 
 ```
 ./setup.ps1 -AutomationAccountName script01 -ResourceGroupName MyResourceGroup -ResourceGroupLocation westeurope -ServiceNowInstanceName "https://google.com" -ServiceNowCredential admin
 ```
+
+### Description
 
 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/move-item?view=powershell-5.1
 #### Parameters
@@ -36,8 +48,7 @@ Type: String
 **-ServiceNowCredential**
   Name of the Automation Account
 
-Type: String
-
+Type: PSCredential 
 
 
 
@@ -93,14 +104,8 @@ Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -Res
   ## 4.Create Automation Credential
   
   ```
-  New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
+  New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Value admin
 
-cmdlet New-AzAutomationCredential at command pipeline position 1
-Supply values for the following parameters:
-(Type !? for Help.)
-Value
-User: admin
-Password for user admin: ********
 ```
   
   To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
