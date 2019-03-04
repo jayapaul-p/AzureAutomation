@@ -64,6 +64,11 @@ Password for user admin: ********
   After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
 
   ## 6.Create Webhook
+  
+  ```
+  PS /home/azureuser> New-AzAutomationWebhook -Name SnowIncidnet -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName "MyResourceGroup" -AutomationAccountName scripte -IsEnabled $true -Force
+  ```
+  
   To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
   ## 7.Create Action Group
