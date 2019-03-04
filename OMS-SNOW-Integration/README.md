@@ -58,7 +58,7 @@ Password for user admin: ********
   ## 5.Create Variables
   
   ```
-  New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false
+  New-AzAutomationVariable -Name snowInstaceName -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false
   ```
   
   After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
