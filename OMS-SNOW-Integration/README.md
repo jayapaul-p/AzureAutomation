@@ -13,7 +13,6 @@ git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
 
 ## Syntax
-
 ```
 ./setup.ps1 -AutomationAccountName <String> -ResourceGroupName <String> -ResourceGroupLocation <String> -ServiceNowInstanceName <String> -ServiceNowCredential <PSCredential>
 ```
@@ -22,7 +21,6 @@ git clone https://github.com/jayapaul-p/AzureAutomation.git
 The **setup.ps1** script creates integration between OMS and ServiceNow.
 
 ## Example:
-
 ### Example 1: Create a OMS-SNOW integration
 ```
 PS C:\> ./setup.ps1 -AutomationAccountName "scriptee" -ResourceGroupName "MyResourceGroup" -ResourceGroupLocation "westeurope" -ServiceNowInstanceName "https://apazha.service-now.com" -ServiceNowCredential "rest_admin"
@@ -30,7 +28,6 @@ PS C:\> ./setup.ps1 -AutomationAccountName "scriptee" -ResourceGroupName "MyReso
 This command creates a integration between ServiceNow and OMS
 
 ## Parameters
-
 | Parameter               |  Type         | Description                   |
 | :---------------------- | :------------:|:----------------------------- | 
 | -AutomationAccountName  | String        |Name of the Automation Account |
@@ -108,7 +105,7 @@ New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Cre
 To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
 ## 7.Create Action Group
-   An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
+   An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action        group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups/createorupdate).
   
 ## 8.Link Action Group with Alerts
    Once after the  action group is creted , it should be linked with the alerts.......... 
