@@ -1,7 +1,7 @@
 # **OMS - ServiceNow Integration**
 
 # Project Overview
-This project delineate the process involved to convert the alerts from Azure OMS(Operations management Suite) portal to incident tickets in ServiceNow . For more insights on OMS and its functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/){:target="_blank"}.
+This project delineate the process involved to convert the alerts from Azure OMS(Operations management Suite) portal to incident tickets in ServiceNow . For more insights on OMS and its functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/).
 
 Follow below steps to configure OMS-ServiceNow without manual intervention.For manual configuration steps please refer the [Link](https://github.com/jayapaul-p/AzureAutomation/blob/master/OMS-SNOW-Integration/Manual_Steps_README.md).
 
