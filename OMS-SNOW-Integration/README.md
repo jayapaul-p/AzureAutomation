@@ -5,16 +5,14 @@
 
 # **Fully Automated Method**
 
-Open cloud shell
+Login to Azure portal and open **cloud shell** (located top corner with PowerShell icon). or go to https://shell.azure.com/
 
-https://docs.microsoft.com/en-us/azure/cloud-shell/cloud-shell-windows-users
+Clone the repository and execute setup.ps1 PowerShell script
 
 ```
 cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
-
-Clone the repository and execute setup.ps1 PowerShell script
 
 ```
 ./setup.ps1 -AutomationAccountName script01 -ResourceGroupName MyResourceGroup -ResourceGroupLocation westeurope -ServiceNowInstanceName "https://google.com" -ServiceNowCredential admin
