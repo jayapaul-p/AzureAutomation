@@ -23,35 +23,46 @@ Clone the repository and execute setup.ps1 PowerShell script
 ### Description
 
 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/move-item?view=powershell-5.1
-#### Parameters
 
-**-AutomationAccountName**
-  Name of the Automation Account
+## PARAMETERS
 
+### -AutomationAccountName
+
+Name of the Automation Account
+
+```yaml
 Type: String
+```
+### -ResourceGroupName
 
-**-ResourceGroupName**
-  Name of the Automation Account
+Name of the Resource Group Name
 
+```yaml
 Type: String
+```
+### -ResourceGroupLocation
 
-**-ResourceGroupLocation**
-  Name of the Automation Account
+To be updated
 
+```yaml
 Type: String
+```
 
-**-ServiceNowInstanceName**
-  Name of the Automation Account
+### -ServiceNowInstanceName
 
+Name of the ServiceNow instance
+
+```yaml
 Type: String
+```
 
-**-ServiceNowCredential**
-  Name of the Automation Account
+### -ServiceNowCredential
 
-Type: PSCredential 
+Name of the ServiceNow instance
 
-
-
+```yaml
+Type: PSCredential
+```
 
 
 ## How the Script Works
