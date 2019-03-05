@@ -38,7 +38,7 @@ This command creates an integration between ServiceNow and OMS
 
 # **Manual Method**
 
-## 1.Create Automation Account
+## 1. Create Automation Account
    
 Use the below script to create an automation account.
 
@@ -49,7 +49,7 @@ Use the below script to create an automation account.
 
  For more information on creation of automation account, refer the Microsoft [documentaion](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
-## 2.Import Runbook
+## 2. Import Runbook
    Go to home directory and clone this git repository using below commands
 
 ```
@@ -67,14 +67,14 @@ Import-AzAutomationRunbook -Path ./Get-SNOWIncPayload.ps1 -Type PowerShell -Reso
 
    Refer the [documetation](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook)to create and         import a runbook. 
 
-## 3.Publish Runbook
+## 3. Publish Runbook
    Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
      <p align="center">(OR)</p>
 ```
 Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
 ```  
   
-## 4.Create Automation Credential
+## 4. Create Automation Credential
    To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
    
    <p align="center">(OR)</p>
@@ -83,14 +83,15 @@ Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResou
 New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Value admin
 ```  
      
-## 5.Create Variables
+## 5. Create Variables
   After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
   
   <p align="center">(OR)</p>
   
 Use the below script  
  ```
- New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -         AutomationAccountName scripte -Encrypted $false
+ New-AzAutomationVariable -Name snowInstaceName -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -         AutomationAccountName scripte -Encrypted $false
+ New-AzAutomationVariable -Name snowInstaceName -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -         AutomationAccountName scripte -Encrypted $false
 ```  
  
 ## 6.Create Webhook
