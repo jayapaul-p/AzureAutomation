@@ -38,7 +38,7 @@ This command creates an integration between ServiceNow and OMS
 
 # **Manual Method**
 
-## 1.Create Automation Account
+## 1. Create Automation Account
    
 Use the below script to create an automation account.
 
