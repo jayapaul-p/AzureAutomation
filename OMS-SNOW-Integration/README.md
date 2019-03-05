@@ -14,13 +14,23 @@ cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
 
+## SYNTAX
+
 ```
 ./setup.ps1 -AutomationAccountName script01 -ResourceGroupName MyResourceGroup -ResourceGroupLocation westeurope -ServiceNowInstanceName "https://google.com" -ServiceNowCredential admin
 ```
 
-### Description
+## DESCRIPTION
+The **New-PSSession** cmdlet creates a PowerShell session (**PSSession**) on a local or remote computer.
 
-https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/move-item?view=powershell-5.1
+## EXAMPLES
+
+### Example 1: Create a session on the local computer
+```
+PS C:\> $s = New-PSSession
+```
+
+This command creates a new **PSSession** on the local computer and saves the **PSSession** in the $s variable.
 
 ## PARAMETERS
 
