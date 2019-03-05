@@ -25,7 +25,7 @@ The **setup.ps1** script creates integration between OMS and ServiceNow.
 ```
 PS C:\> ./setup.ps1 -AutomationAccountName "scriptee" -ResourceGroupName "MyResourceGroup" -ResourceGroupLocation "westeurope" -ServiceNowInstanceName "https://apazha.service-now.com" -ServiceNowCredential "rest_admin"
 ```
-This command creates a integration between ServiceNow and OMS
+This command creates an integration between ServiceNow and OMS
 
 ## Parameters
 | Parameter               |  Type         | Description                   |
@@ -47,44 +47,44 @@ Use the below script to create an automation account.
 ```  
 <p align="center">(OR)</p>  
 
-Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
+   Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
 ## 2.Import Runbook
    
-Go to home directory and clone this git repository using below commands
+   Go to home directory and clone this git repository using below commands
 
 ```
 cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
-Import the runbook using below commands
+   Import the runbook using below commands
 
 ```
 cd ./AzureAutomation/OMS-SNOW-Integration/Runbook/
 Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scriptee -Name Create-SNOWIncident
 Import-AzAutomationRunbook -Path ./Get-SNOWIncPayload.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scriptee -Name Get-SNOWIncPayload
 ```  
-<p align="center">(OR)</p>  
+   <p align="center">(OR)</p>  
 
-Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
+   Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
 
 ## 3.Publish Runbook
    
 ```
 Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
 ```  
-<p align="center">(OR)</p>  
+   <p align="center">(OR)</p>  
    
-Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
+   Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
  
 ## 4.Create Automation Credential
   
 ```
 New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Value admin
 ```  
-<p align="center">(OR)</p>  
+  <p align="center">(OR)</p>  
   
-To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
+   To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
 
 ## 5.Create Variables
   
@@ -93,7 +93,7 @@ New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-no
 ```  
 <p align="center">(OR)</p>  
   
-After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
+   After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
 
 ## 6.Create Webhook
   
@@ -102,7 +102,7 @@ New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Cre
 ```  
 <p align="center"><b>(OR)<b/></p>  
 
-To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
+   To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
 ## 7.Create Action Group
    An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action        group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups/createorupdate).
