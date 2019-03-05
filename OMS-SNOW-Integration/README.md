@@ -113,17 +113,17 @@ New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Cre
 
 # **ServiceNow Payload Configuration**
 
-Edit Get-SNOWIncPayload.ps1 and make necessary changes there.
+Edit **Get-SNOWIncPayload.ps1** and make necessary changes there.
 
 ```
 $input.short_description = "$alertName - $computerName" #Short Description
-$input.caller_id = '' #User Id
-$input.category = '' #Inquiry type
-$input.service_offering = '' #Service
-$input.cmdb_ci = '' #Configuration item
-$input.assignment_group ='' #Assignment Group
-$input.priority = ''
-$input.comments = "$alertName - $computerName"
+$input.caller_id         = '' #User Id
+$input.category          = '' #Inquiry type
+$input.service_offering  = '' #Service
+$input.cmdb_ci           = '' #Configuration item
+$input.assignment_group  = '' #Assignment Group
+$input.priority          = ''
+$input.comments          = "$alertName - $computerName"
 ```
 
 Refer ServiceNow Incident Table API [Link](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/task/t_GetStartedCreateInt.html) for more information
