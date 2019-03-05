@@ -82,7 +82,7 @@ Use the below script to create an automation account.
 ```
    New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
    ```  
-*(OR)*  
+<p align="justify"><b>(OR)<b/></p>
 
 Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
