@@ -1,3 +1,4 @@
+
 param (
     [Parameter(Mandatory=$false)]
     [object]
@@ -7,10 +8,6 @@ param (
 Write-Output $WebhookData;
 
 #$data = ConvertFrom-Json -InputObject $WebhookData;
-
-#$WebhookName = $data.WebhookName;
-#$RequestBody = $data.RequestBody;
-#$RequestHeader = $data.RequestHeader;
 
 $WebhookName = $WebhookData.WebhookName;
 $RequestBody = $WebhookData.RequestBody;
@@ -22,10 +19,12 @@ Write-Output "RequestHeader => $RequestHeader"
 
 
 $snowEndpoint = Get-AutomationVariable -Name 'snowEndpoint';
+$snowInstanceName = Get-AutomationVariable -Name 'snowInstanceName';
 $restCrential = Get-AutomationPSCredential -Name 'SNOW-Connection';
+$restUrl = $snowInstanceName + $snowEndpoint;
 
 $payload = .\Get-SNOWIncPayload.ps1 -AlertInput $RequestBody
 
 Write-Output "payload: $payload";
 
-Invoke-WebRequest -Uri $snowEndpoint -Body $payload -Credential $restCrential -ContentType 'application/json' -Method Post -UseBasicParsing
+Invoke-WebRequest -Uri $restUrl -Body $payload -Credential $restCrential -ContentType 'application/json' -Method Post -UseBasicParsing

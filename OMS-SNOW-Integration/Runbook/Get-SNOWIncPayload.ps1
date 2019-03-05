@@ -9,11 +9,12 @@ $computerName = $data.data.context.resourceName;
 $alertName = $data.data.context.name;
 
 $input = @{};
-$input.short_description = "$alertName - $computerName"
-$input.caller_id = ''
-$input.category = ''
-$input.cmdb_ci = ''
-$input.assignment_group =''
+$input.short_description = "$alertName - $computerName" #Short Description
+$input.caller_id = '' #User Id
+$input.category = '' #Inquiry type
+$input.service_offering = '' #Service
+$input.cmdb_ci = '' #Configuration item
+$input.assignment_group ='' #Assignment Group
 $input.priority = ''
 $input.comments = "$alertName - $computerName"
 
