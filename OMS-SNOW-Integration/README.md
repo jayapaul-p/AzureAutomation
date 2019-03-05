@@ -17,20 +17,20 @@ git clone https://github.com/jayapaul-p/AzureAutomation.git
 ## SYNTAX
 
 ```
-./setup.ps1 -AutomationAccountName script01 -ResourceGroupName MyResourceGroup -ResourceGroupLocation westeurope -ServiceNowInstanceName "https://google.com" -ServiceNowCredential admin
+./setup.ps1 -AutomationAccountName <String> -ResourceGroupName <String> -ResourceGroupLocation <String> -ServiceNowInstanceName <String> -ServiceNowCredential <PSCredential>
 ```
 
 ## DESCRIPTION
-The **New-PSSession** cmdlet creates a PowerShell session (**PSSession**) on a local or remote computer.
+The **setup.ps1** script creates integration between OMS and ServiceNow.
 
 ## EXAMPLES
 
-### Example 1: Create a session on the local computer
+### Example 1: Create a OMS-SNOW integration
 ```
-PS C:\> $s = New-PSSession
+PS C:\> ./setup.ps1 -AutomationAccountName "scriptee" -ResourceGroupName "MyResourceGroup" -ResourceGroupLocation "westeurope" -ServiceNowInstanceName "https://apazha.service-now.com" -ServiceNowCredential "rest_admin"
 ```
 
-This command creates a new **PSSession** on the local computer and saves the **PSSession** in the $s variable.
+This command creates a integration between ServiceNow and OMS
 
 ## PARAMETERS
 
