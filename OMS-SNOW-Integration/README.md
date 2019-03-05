@@ -43,7 +43,7 @@ This command creates an integration between ServiceNow and OMS
 An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action        group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
   
 # Link Action Group with Alerts
-Once after the action group is created, it should be linked with the alerts that will be later created as an incident ticket in ServiceNow. 
+Once after the action group is created, it should be linked with the alerts that will be later created as an incident ticket in ServiceNow. Follow the [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric) to create alerts
 
 # ServiceNow Payload Configuration
 Edit **Get-SNOWIncPayload.ps1** and make necessary changes in the payload.
