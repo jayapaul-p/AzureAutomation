@@ -65,25 +65,16 @@ Type: PSCredential
 ```
 
 
-## How the Script Works
-   The fully automated script,helps in the integration of Azure OMS with ServiceNow via runbooks using Webhooks.
-   
-## Cloning Of Script from GITHUB
-
-
-## How to Execute the script
-
-
-## Result of the Script
-
 # **Manual Method**
 
    ## 1.Create Automation Account
+   
    Use the below script to create an automation account.
    ```
    New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
-   ```
-   *(OR)*
+   ```  
+   *(OR)*  
+   
    Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
    ## 2.Import Runbook
@@ -99,7 +90,9 @@ git clone https://github.com/jayapaul-p/AzureAutomation.git
 cd ./AzureAutomation/OMS-SNOW-Integration/Runbook/
 Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Name Create-SNOWIncident
 
-```
+```  
+   *(OR)*  
+   
 
 
    
@@ -109,7 +102,9 @@ Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -Res
    
    ```
    Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
-   ```
+   ```  
+   *(OR)*  
+   
    Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
  
   ## 4.Create Automation Credential
@@ -117,7 +112,9 @@ Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -Res
   ```
   New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Value admin
 
-```
+```  
+   *(OR)*  
+   
   
   To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
 
@@ -125,7 +122,9 @@ Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -Res
   
   ```
   New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false
-  ```
+  ```  
+   *(OR)*  
+   
   
   After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
 
@@ -133,7 +132,9 @@ Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -Res
   
   ```
   New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName "MyResourceGroup" -AutomationAccountName scripte -IsEnabled $true -Force
-  ```
+  ```  
+   *(OR)*  
+   
   
   To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
