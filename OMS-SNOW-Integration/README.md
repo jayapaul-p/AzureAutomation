@@ -100,7 +100,7 @@ New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-no
 ```
 New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName "MyResourceGroup" -AutomationAccountName scripte -IsEnabled $true -Force
 ```  
-<p align="center"><b>(OR)<b/></p>  
+<p align="center">(OR)</p>  
 
    To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
