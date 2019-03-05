@@ -76,12 +76,22 @@ catch {
 }
 
 try {
-    New-AzAutomationWebhook -Name ServiceNow-Incident -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -IsEnabled $true -Force -ErrorAction Stop;
+    $webhookResponse = New-AzAutomationWebhook -Name ServiceNow-Incident -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -IsEnabled $true -Force -ErrorAction Stop;
+    $webhookName = $webhookResponse.WebhookURI
     Write-Output "Webhook has been created successfully";
 }
 catch {
     Write-Host $_;
     Write-Output "Error occurred while creating webhook";
     exit;
-    
+}
+
+try {
+    $actionGroupReceiver = New-AzureRmActionGroupReceiver -WebhookReceiver -ServiceUri $webhookName -Name SNOW-Incident -ErrorAction Stop
+    Set-AzureRmActionGroup -Name 'SNOW-Incident' -ResourceGroupName $ResourceGroupName -ShortName �SNOW-INC� -Receiver $actionGroupReceiver -ErrorAction Stop
+}
+catch {
+    Write-Host $_;
+    Write-Output "Error occurred while creating Action Group. Error Message: $_.Message";
+    exit;   
 }
