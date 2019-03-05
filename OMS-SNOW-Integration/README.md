@@ -6,72 +6,38 @@
 # **Fully Automated Method**
 
 Login to Azure portal and open **cloud shell** (located top corner with PowerShell icon). or go to https://shell.azure.com/
-
 Clone the repository and execute setup.ps1 PowerShell script
-
 ```
 cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
 
-## SYNTAX
+## Syntax
 
 ```
 ./setup.ps1 -AutomationAccountName <String> -ResourceGroupName <String> -ResourceGroupLocation <String> -ServiceNowInstanceName <String> -ServiceNowCredential <PSCredential>
 ```
 
-## DESCRIPTION
+## Description
 The **setup.ps1** script creates integration between OMS and ServiceNow.
 
-## EXAMPLES
+## Example:
 
 ### Example 1: Create a OMS-SNOW integration
 ```
 PS C:\> ./setup.ps1 -AutomationAccountName "scriptee" -ResourceGroupName "MyResourceGroup" -ResourceGroupLocation "westeurope" -ServiceNowInstanceName "https://apazha.service-now.com" -ServiceNowCredential "rest_admin"
 ```
-
 This command creates a integration between ServiceNow and OMS
 
-## PARAMETERS
+## Parameters
 
-### -AutomationAccountName
-
-Name of the Automation Account
-
-```yaml
-Type: String
-```
-### -ResourceGroupName
-
-Name of the Resource Group Name
-
-```yaml
-Type: String
-```
-### -ResourceGroupLocation
-
-To be updated
-
-```yaml
-Type: String
-```
-
-### -ServiceNowInstanceName
-
-Name of the ServiceNow instance
-
-```yaml
-Type: String
-```
-
-### -ServiceNowCredential
-
-Name of the ServiceNow instance
-
-```yaml
-Type: PSCredential
-```
-
+| Parameter               |  Type         | Description                   |
+| :---------------------- | :------------:|:----------------------------- | 
+| -AutomationAccountName  | String        |Name of the Automation Account |
+| -ResourceGroupName      | String        |Name of the Resource Group Name|
+| -ResourceGroupLocation  | String        |To be updated                  |
+| -ServiceNowInstanceName | String        |Name of the ServiceNow instance|
+| -ServiceNowCredential   | PSCredential  |Credential used for the ServiceNow instance|
 
 # **Manual Method**
 
@@ -142,7 +108,7 @@ New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Cre
 To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
   
 ## 7.Create Action Group
-An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
+   An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
   
 ## 8.Link Action Group with Alerts
-Once after the  action group is creted , it should be linked with the alerts.......... 
+   Once after the  action group is creted , it should be linked with the alerts.......... 
