@@ -88,7 +88,7 @@ catch {
 
 try {
     $actionGroupReceiver = New-AzureRmActionGroupReceiver -WebhookReceiver -ServiceUri $webhookName -Name SNOW-Incident -ErrorAction Stop
-    Set-AzureRmActionGroup -Name 'SNOW-Incident' -ResourceGroupName $ResourceGroupName -ShortName �SNOW-INC� -Receiver $actionGroupReceiver -ErrorAction Stop
+    Set-AzureRmActionGroup -Name 'SNOW-Incident' -ResourceGroupName $ResourceGroupName -ShortName "SNOW-INC" -Receiver $actionGroupReceiver -ErrorAction Stop
 }
 catch {
     Write-Host $_;
