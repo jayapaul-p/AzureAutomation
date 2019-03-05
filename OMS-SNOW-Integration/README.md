@@ -109,3 +109,10 @@ New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Cre
   
 ## 8.Link Action Group with Alerts
    Once after the  action group is creted , it should be linked with the alerts.......... 
+
+
+# **ServiceNow Payload Configuration**
+
+Edit Get-SNOWIncPayload.ps1 and make necessary changes there.
+
+Refer ServiceNow Incident Table API [Link](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/task/t_GetStartedCreateInt.html) for more information
