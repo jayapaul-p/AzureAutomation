@@ -75,40 +75,40 @@ Type: PSCredential
 
 # **Manual Method**
 
-   ## 1.Create Automation Account
+## 1.Create Automation Account
    
-   Use the below script to create an automation account.
-   ```
+Use the below script to create an automation account.
+
+```
    New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
    ```  
-   *(OR)*  
-   
-   Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
+*(OR)*  
 
-   ## 2.Import Runbook
+Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
+
+## 2.Import Runbook
    
-   ### Clone git repo
+Go to home directory and clone this git repository using below commands
 
 ```
 cd ~
 git clone https://github.com/jayapaul-p/AzureAutomation.git
 ```
-### Import Runbook
+Import the runbook using below commands
+
 ```
 cd ./AzureAutomation/OMS-SNOW-Integration/Runbook/
-Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Name Create-SNOWIncident
+Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scriptee -Name Create-SNOWIncident
+Import-AzAutomationRunbook -Path ./Get-SNOWIncPayload.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scriptee -Name Get-SNOWIncPayload
 
 ```  
    *(OR)*  
-   
 
+Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
 
+## 3.Publish Runbook
    
-   Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
-
-   ## 3.Publish Runbook
-   
-   ```
+```
    Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
    ```  
    *(OR)*  
