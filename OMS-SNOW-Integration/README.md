@@ -1,7 +1,7 @@
 # **OMS - SNOW Integration**
 
 # Project Overview
-  This project provides the steps to integrate Azure OMS (Operations management Suite) with ServiceNow. For more insights on OMS and its   functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/).
+This project delineate the process involved to convert the alerts from Azure OMS(Operations management Suite) portal to incident tickets in ServiceNow . For more insights on OMS and its functionalities,watch the video [Azure Automation in OMS](https://azure.microsoft.com/en-in/resources/videos/automate-everywhere-with-the-new-azure-automation-in-oms-with-special-guest-jeffrey-snover/).
 
 # **Fully Automated Method**
 
@@ -65,7 +65,7 @@ Import-AzAutomationRunbook -Path ./Get-SNOWIncPayload.ps1 -Type PowerShell -Reso
 ```  
 <p align="center">(OR)</p>  
 
-Refer the [documetation](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook)to create and         import a runbook. 
+Refer the [documetation](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and         import a runbook. 
 
 ## 3. Publish Runbook
 Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
@@ -95,7 +95,7 @@ New-AzAutomationVariable -Name snowInstaceName -Value "https://apazha.service-no
 New-AzAutomationVariable -Name snowEndpoint -Value "/api/now/v1/table/incident" -ResourceGroupName MyResourceGroup -         AutomationAccountName scriptee -Encrypted $false
 ```  
  
-## 6.Create Webhook
+## 6. Create Webhook
 To create a webhook for the runbook , the required steps are available in the [document](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#creating-a-webhook).
  
 <p align="center">(OR)</p>
