@@ -32,9 +32,9 @@ This command creates an integration between ServiceNow and OMS
 | :---------------------- | :------------:|:----------------------------- | 
 | -AutomationAccountName  | String        |Name of the Automation Account |
 | -ResourceGroupName      | String        |Name of the Resource Group Name|
-| -ResourceGroupLocation  | String        |To be updated                  |
-| -ServiceNowInstanceName | String        |Name of the ServiceNow instance|
-| -ServiceNowCredential   | PSCredential  |Credential used for the ServiceNow instance|
+| -ResourceGroupLocation  | String        |Resource Group Location|
+| -ServiceNowInstanceName | String        |URL of the ServiceNow instance|
+| -ServiceNowCredential   | PSCredential  |REST API access credential|
 
 # **Manual Method**
 
