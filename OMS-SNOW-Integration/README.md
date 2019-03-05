@@ -106,13 +106,13 @@ Below cmdlet can be used for the creation of webhook
 New-AzAutomationWebhook -Name SNOWINC -ExpiryTime "12/12/2019" -RunbookName "Create-SNOWIncident" -ResourceGroupName "MyResourceGroup" -AutomationAccountName scripte -IsEnabled $true -Force
 ```  
    
-## 7.Create Action Group
-   An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action        group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
+# Create Action Group
+An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action        group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
   
-## 8.Link Action Group with Alerts
-   Once after the  action group is creted , it should be linked with the alerts that will be later created as an incident ticket in ServiceNow. 
+# Link Action Group with Alerts
+Once after the action group is created, it should be linked with the alerts that will be later created as an incident ticket in ServiceNow. 
 
-# **ServiceNow Payload Configuration**
+# ServiceNow Payload Configuration
 Edit **Get-SNOWIncPayload.ps1** and make necessary changes in the payload.
 
 ```
