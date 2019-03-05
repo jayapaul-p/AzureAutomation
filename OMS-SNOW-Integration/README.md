@@ -82,7 +82,7 @@ Use the below script to create an automation account.
 ```
    New-AzAutomationAccount -Name scripte -ResourceGroupName MyResourceGroup -Location 'westeurope'
 ```  
-<p align="center"><b>(OR)<b/></p>  
+<p align="center">(OR)</p>  
 
 Follow the steps available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
@@ -101,7 +101,7 @@ cd ./AzureAutomation/OMS-SNOW-Integration/Runbook/
 Import-AzAutomationRunbook -Path ./Create-SNOWIncident.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scriptee -Name Create-SNOWIncident
 Import-AzAutomationRunbook -Path ./Get-SNOWIncPayload.ps1 -Type PowerShell -ResourceGroupName MyResourceGroup -AutomationAccountName scriptee -Name Get-SNOWIncPayload
 ```  
-<p align="center"><b>(OR)<b/></p>  
+<p align="center">(OR)</p>  
 
 Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook) to create and    import a runbook. 
 
@@ -110,7 +110,7 @@ Follow the steps in the [link](https://docs.microsoft.com/en-us/azure/automation
 ```
 Publish-AzAutomationRunbook -Name Create-SNOWIncident -ResourceGroupName MyResourceGroup -AutomationAccountName scripte
 ```  
-<p align="center"><b>(OR)<b/></p>  
+<p align="center">(OR)</p>  
    
 Once after the runbook is imported and tested,follow the [steps](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-runbook#test-the-runbook) to publish the runbook.
  
@@ -119,7 +119,7 @@ Once after the runbook is imported and tested,follow the [steps](https://docs.mi
 ```
 New-AzAutomationCredential -Name SNOW-Connection -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Value admin
 ```  
-<p align="center"><b>(OR)<b/></p>  
+<p align="center">(OR)</p>  
   
 To create an automation credential with Azure portal and Powershell , follow the steps from [Creating a new credential asset](https://docs.microsoft.com/en-us/azure/automation/automation-credentials#creating-a-new-credential-asset).
 
@@ -128,7 +128,7 @@ To create an automation credential with Azure portal and Powershell , follow the
 ```
 New-AzAutomationVariable -Name snowInstaceNam -Value https://dev54236.service-now.com/ -ResourceGroupName MyResourceGroup -AutomationAccountName scripte -Encrypted $false
 ```  
-<p align="center"><b>(OR)<b/></p>  
+<p align="center">(OR)</p>  
   
 After creating an automation credential , an automation variable should be created and the required steps are available in the [link](https://docs.microsoft.com/en-us/azure/automation/automation-variables#creating-a-new-automation-variable).
 
