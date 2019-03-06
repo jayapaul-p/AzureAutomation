@@ -74,12 +74,21 @@ New-AzAutomationWebhook -Name ServiceNow-Incident -ExpiryTime "12/12/2019" -Runb
 ```  
 # Create Action Group
 An action group is a collection of notification preferences defined by the owner of an Azure subscription , to create the action        group follow the steps from the azure portal [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups). 
+
+<p align="center">(OR)</p>
+
+Execute below commands to create action group with webhook receiver
+
+```
+$actionGroupReceiver = New-AzureRmActionGroupReceiver -WebhookReceiver -ServiceUri webhookUri -Name SNOW-Incident
+Set-AzureRmActionGroup -Name 'SNOW-Incident' -ResourceGroupName MyResourceGroup -ShortName "SNOW-INC" -Receiver $actionGroupReceiver
+```
   
 # Link Action Group with Alerts
 Once after the action group is created, it should be linked with the alerts that will be later created as an incident ticket in ServiceNow. Follow the [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric) to create alerts.
 
 # ServiceNow Payload Configuration
-Edit **Get-SNOWIncPayload.ps1** and make necessary changes in the payload.
+Edit **Get-SNOWIncPayload.ps1** and make necessary changes in the payload based on project requirement.
 
 ```
 $input.short_description = "$alertName - $computerName" #Short Description
@@ -93,3 +102,6 @@ $input.comments          = "$alertName - $computerName"
 ```
 
 Refer ServiceNow Incident Table API [Link](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/task/t_GetStartedCreateInt.html) for more information.
+
+
+**Note: Alerts may send different type of inputs to runbook (Create-SNOWIncident.ps1), make neccessary changes based on project requirement.**
