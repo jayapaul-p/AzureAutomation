@@ -25,6 +25,7 @@ The **setup.ps1** script creates integration between OMS and ServiceNow.
 ## Example:
 ### Create a OMS-SNOW integration
 ```
+PS C:\> cd ./AzureAutomation/OMS-SNOW-Integration/
 PS C:\> ./setup.ps1 -AutomationAccountName "scriptee" -ResourceGroupName "MyResourceGroup" -ResourceGroupLocation "westeurope" -ServiceNowInstanceName "https://apazha.service-now.com" -ServiceNowCredential "rest_admin"
 ```
 This command creates an integration between ServiceNow and OMS
