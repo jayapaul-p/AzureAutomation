@@ -65,7 +65,7 @@ catch {
 }
 
 try {
-    New-AzAutomationVariable -Name snowInstaceName -Value $ServiceNowInstanceName -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Encrypted $false -ErrorAction Stop;
+    New-AzAutomationVariable -Name snowInstanceName -Value $ServiceNowInstanceName -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Encrypted $false -ErrorAction Stop;
     New-AzAutomationVariable -Name snowEndpoint -Value "/api/now/v1/table/incident" -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -Encrypted $false -ErrorAction Stop;
     Write-Output "Automation variables have been created successfully";
 }
