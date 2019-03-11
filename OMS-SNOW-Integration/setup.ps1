@@ -7,7 +7,7 @@ Param
     $ResourceGroupName,
 
     [Parameter(Mandatory = $true)]
-    $ResourceGroupLocation = "westeurope",
+    $ResourceGroupLocation,
 
     [Parameter(Mandatory = $true)]
     $ServiceNowInstanceName,
@@ -25,8 +25,8 @@ try {
 catch {
 
     Write-Error $_;
-    Write-Output "New automation account creation has been failed.\nError Message: $_.Message";
-    exit;
+    Write-Output "New automation account creation has been failed.\nError Message: $($_.Exception.Response.Content)";
+    exit 1;
 }
 
 try {
@@ -38,8 +38,8 @@ try {
 }
 catch {
     Write-Error $_;
-    Write-Output "Unable to import runbooks.\nError Message: $_.Message";
-    exit
+    Write-Output "Unable to import runbooks.\nError Message: $_.Exception.Message";
+    exit 1;
 }
 
 
@@ -50,8 +50,8 @@ try {
 }
 catch {
     Write-Error $_;
-    Write-Output "Unable to publish runbook.\nError Message: $_.Message";
-    exit
+    Write-Output "Unable to publish runbook.\nError Message: $_.Exception.Message";
+    exit 1;
 }
 
 try {
@@ -60,8 +60,8 @@ try {
 }
 catch {
     Write-Host $_;
-    Write-Output "Error occurred while creating SNOW connection.\nError Message: $_.Message";
-    exit;
+    Write-Output "Error occurred while creating SNOW connection.\nError Message: $_.Exception.Message";
+    exit 1;
 }
 
 try {
@@ -72,7 +72,7 @@ try {
 catch {
     Write-Host $_;
     Write-Output "Error occurred while creating automation variables"
-    exit;
+    exit 1;
 }
 
 try {
@@ -83,7 +83,7 @@ try {
 catch {
     Write-Host $_;
     Write-Output "Error occurred while creating webhook";
-    exit;
+    exit 1;
 }
 
 try {
@@ -92,6 +92,6 @@ try {
 }
 catch {
     Write-Host $_;
-    Write-Output "Error occurred while creating Action Group. Error Message: $_.Message";
-    exit;   
+    Write-Output "Error occurred while creating Action Group. Error Message: $_.Exception.Message";
+    exit 1;   
 }
