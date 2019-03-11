@@ -25,7 +25,7 @@ try {
 catch {
 
     Write-Error $_;
-    Write-Output "New automation account creation has been failed.\nError Message: $($_.Exception.Response.Content)";
+    Write-Error "New automation account creation has been failed.\nError Message: $($_.Exception.Response.Content)";
     exit 1;
 }
 
@@ -38,7 +38,7 @@ try {
 }
 catch {
     Write-Error $_;
-    Write-Output "Unable to import runbooks.\nError Message: $_.Exception.Message";
+    Write-Error "Unable to import runbooks.\nError Message: $_.Exception.Message";
     exit 1;
 }
 
@@ -50,7 +50,7 @@ try {
 }
 catch {
     Write-Error $_;
-    Write-Output "Unable to publish runbook.\nError Message: $_.Exception.Message";
+    Write-Error "Unable to publish runbook.\nError Message: $_.Exception.Message";
     exit 1;
 }
 
@@ -59,8 +59,8 @@ try {
     Write-Output "SNOW connection has been created successfully";
 }
 catch {
-    Write-Host $_;
-    Write-Output "Error occurred while creating SNOW connection.\nError Message: $_.Exception.Message";
+    Write-Error $_;
+    Write-Error "Error occurred while creating SNOW connection.\nError Message: $_.Exception.Message";
     exit 1;
 }
 
@@ -70,8 +70,8 @@ try {
     Write-Output "Automation variables have been created successfully";
 }
 catch {
-    Write-Host $_;
-    Write-Output "Error occurred while creating automation variables"
+    Write-Error $_;
+    Write-Error "Error occurred while creating automation variables"
     exit 1;
 }
 
@@ -81,8 +81,8 @@ try {
     Write-Output "Webhook has been created successfully";
 }
 catch {
-    Write-Host $_;
-    Write-Output "Error occurred while creating webhook";
+    Write-Error $_;
+    Write-Error "Error occurred while creating webhook";
     exit 1;
 }
 
@@ -91,7 +91,7 @@ try {
     Set-AzureRmActionGroup -Name 'SNOW-Incident' -ResourceGroupName $ResourceGroupName -ShortName "SNOW-INC" -Receiver $actionGroupReceiver -ErrorAction Stop
 }
 catch {
-    Write-Host $_;
-    Write-Output "Error occurred while creating Action Group. Error Message: $_.Exception.Message";
+    Write-Error $_;
+    Write-Error "Error occurred while creating Action Group. Error Message: $_.Exception.Message";
     exit 1;   
 }
