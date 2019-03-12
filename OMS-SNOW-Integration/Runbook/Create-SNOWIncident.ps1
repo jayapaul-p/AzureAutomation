@@ -13,15 +13,9 @@ if ($WebHookData){
     $RequestBody = $WebhookData.RequestBody;
     $RequestHeader = $WebhookData.RequestHeader;
 
-    if(-not $RequestBody) {
-        Write-Output "WebhookName: $WebhookName"
-        Write-Output "RequestBody: $RequestBody"
-        Write-Output "RequestHeader: $RequestHeader"
-    }
-    else {
-        Write-Error -Message 'Runbook was not started from Webhook. RequestBody was empty.' -ErrorAction Stop;
-        exit 1;
-    }
+    Write-Output "WebhookName: $WebhookName"
+    Write-Output "RequestBody: $RequestBody"
+    Write-Output "RequestHeader: $RequestHeader"
 }
 else
 {
